@@ -2,7 +2,7 @@
 <html>
     <head>
         <link href="./style.css" rel="stylesheet">
-        <title>Book Order Form</title>
+        <title> Form</title>
      
     </head>
     <body style="background-color: rgb(245, 245, 245);">
@@ -112,14 +112,27 @@
                  <label for="email">Email:</label><br>
                  <input type="email" name="email" id="email" required placeholder="Enter Email Here"><br>
                  <label for="password">Password:</label><br>
-                 <input type="password" name="name" id="password" required><br>
+                 <input type="password" name="password" id="password" required><br>
                  <label for="comp">Confirm Password:</label><br>
-                 <input type="password" name="cpassword" id="comp" required><br><br>
+                 <input type="password" name="cpassword" id="confirm-password" required><br><br>
+                 <span id="password-match"></span><br><br>
                  <input type="submit" value="Register">
                 </form>
                 </div>
             </section>
         </main>
+        <script>
+          var passwordField = document.getElementById("password");
+          var confirmPasswordField = document.getElementById("confirm-password");
+          var passwordMatchSpan = document.getElementById("password-match");
+
+          document.querySelector("form").addEventListener("submit", function(event) {
+              if (passwordField.value !== confirmPasswordField.value) {
+                  event.preventDefault(); // Prevent form submission
+                  passwordMatchSpan.textContent = "Password does not match";
+              }
+          });
+      </script>
     </body>
        
 
